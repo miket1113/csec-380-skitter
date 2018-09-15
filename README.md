@@ -1,10 +1,11 @@
 # skitter
 
-Final project for csec-380
+Final project for csec-380 
+
 Authors:
-Michael Terranova
-Michael Rhodes
-Nicole Holden
+* Michael Terranova
+* Michael Rhodes
+* Nicole Holden
 
 **Description:**
 
