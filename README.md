@@ -16,6 +16,8 @@ so that those users messages will appear on their main message feed. Users will 
 or delete their own skits either as a new skit, or as a reply to an existing skit. Users will authenticate
 to the system using RIT's exposed LDAP server.(WIP)
 
+![Alt text](SkitterV2.png?raw=true "WARNING: Concept art only - What skitter could look like.")
+
 
 **Objectives/Goal:** 
 
