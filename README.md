@@ -1,14 +1,14 @@
 # skitter
 
-Concept art only. Final version will be different, see below for project description.
-![Alt text](SkitterV2.png?raw=true "WARNING: Concept art only - What skitter could look like.")
-
 Final project for csec-380 
 
 Authors:
 * Michael Terranova
 * Michael Rhodes
 * Nicole Holden
+
+Concept art only. Final version will be different, see below for project description.
+![Alt text](SkitterV2.png?raw=true "WARNING: Concept art only - What skitter could look like.")
 
 **Description:**
 
