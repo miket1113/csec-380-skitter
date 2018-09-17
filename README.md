@@ -1,5 +1,8 @@
 # skitter
 
+Concept art only. Final version will be different, see below for project description.
+![Alt text](SkitterV2.png?raw=true "WARNING: Concept art only - What skitter could look like.")
+
 Final project for csec-380 
 
 Authors:
@@ -15,9 +18,6 @@ an email and upload a profile picture via settings. They will also be able to fo
 so that those users messages will appear on their main message feed. Users will be able to add new skits
 or delete their own skits either as a new skit, or as a reply to an existing skit. Users will authenticate
 to the system using RIT's exposed LDAP server.(WIP)
-
-![Alt text](SkitterV2.png?raw=true "WARNING: Concept art only - What skitter could look like.")
-
 
 **Objectives/Goal:** 
 
