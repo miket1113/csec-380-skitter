@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+
+    apache1:
+      build: ./Apache
+
+    reverseproxy:
+      build: ./Cache
+      ports:
+        - "80:80"
+      depends_on:
+        - balancer
+
+    balancer:
+      build: ./Balancer
+      depends_on:
+        - apache1
+      
+
+    
