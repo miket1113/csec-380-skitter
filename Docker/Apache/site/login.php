@@ -6,5 +6,5 @@ $password = $_POST['password'];
 
 # if success, create session and set cookie
 
-echo "HELLO WORLD!";
+echo $email.$password;
 ?>
