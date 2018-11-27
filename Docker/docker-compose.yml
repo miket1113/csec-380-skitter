@@ -4,18 +4,41 @@ services:
 
     apache1:
       build: ./Apache
+      container_name: apache1
+      hostname: apache1
 
-    reverseproxy:
-      build: ./Cache
+    apache2:
+      build: ./Apache
+      container_name: apache2
+      hostname: apache2
+
+    cache1:
+      build: ./Cache/cache1
+      # for testing purposes
       ports:
-        - "80:80"
+        - "8081:80"
       depends_on:
-        - balancer
+        - apache1
+      hostname: cache1
+      container_name: cache1
+
+    cache2:
+      build: ./Cache/cache2
+      # for testing purposes
+      ports:
+        - "8082:80"
+      depends_on:
+        - apache2
+      hostname: cache2
+      container_name: cache2
 
     balancer:
       build: ./Balancer
       depends_on:
-        - apache1
-      
+        - cache1
+        - cache2
+      ports:
+        - "8080:80"
+      hostname: balancer
+      container_name: balancer
 
-    

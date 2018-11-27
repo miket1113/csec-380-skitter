@@ -1,4 +1,4 @@
-FROM httpd:alpine
+FROM owasp/modsecurity-crs
 
-RUN apk update && apk upgrade && apk add bash
-COPY index.html /usr/local/apache2/htdocs/index.html
+COPY index.html /var/www/html/index.html 
+
