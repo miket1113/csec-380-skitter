@@ -44,7 +44,7 @@ services:
         - cache1
         - cache2
       ports:
-        - "8080:80"
+        - "80:80"
         - "443:443"
       hostname: balancer
       container_name: balancer

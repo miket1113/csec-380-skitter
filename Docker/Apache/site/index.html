@@ -10,6 +10,30 @@
             background-color: #303641;
         }
     </style>
+    <script type="text/javascript" src="js/jquery.js"></script>  
+    <script type="text/javascript" nonce="EasyJQeuryNonce">    
+        //inspired from the homeworks :)   
+        $(document).ready(function() {
+            $('#loginForm').submit(function(event) {
+                event.preventDefault();		
+                var data = $('#loginForm').serialize();
+                $.post( "login.php", data)
+                    .done(function( data ) {
+                        if(data.search("False - ") != -1){
+                            $("#loginMsg").css( "color", "red" )
+                            $("#loginMsg").html(data.substring(data.search(" - ")+3,data.length));
+                        }else if(data.search("True - ") != -1){
+                            //window.location.href = '/home.php';
+                            alert("Login successful");
+                        }else{
+                            $("#loginMsg").css( "color", "red" )
+                            $("#loginMsg").html("There was an error logging you in, contact the administrator");					
+                        }
+                });		
+            });			
+        });                                    
+</script>   
+
   </head>
   <body>
 	
@@ -18,7 +42,7 @@
             <i class="material-icons lock">Skitter</i> Login
         </div>
 
-        <form action="login.php" method="post">
+        <form id=loginForm action="login.php" method="post">
             <div class="input">
                 <div class="input-addon">
                     <i class="material-icons">RIT User ID</i>
@@ -36,8 +60,8 @@
             </div>
             <input type="submit" value="Log In" />
         </form>
-
-</div>
+        <div id="loginMsg"></div>
+    </div>
 
   </body>
 </html>
