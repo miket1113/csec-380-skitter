@@ -2,27 +2,42 @@
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Skitter</title>
+    <title>Skitter - Login</title>
     <style media="screen"></style>
+    <link rel="stylesheet" href="login.css">
+    <style>
+        body {
+            background-color: #303641;
+        }
+    </style>
   </head>
   <body>
 	
-	<div id="login">
-	<table>
-	<tr><td>Username</td><td>Password</td></tr>
-	<form id=loginForm action="login.php" method="post">
-	<tr><td>
-	<input type="text" id="email" name="email" />
-	</td><td>
-	<input type="password" id="password" name="password" />
-	</td><td>
-	<input type="submit" name="submit" value="login" />
-	</td></tr>
-	</form>
-	</table>
-	</div>
+    <div id="container-login">
+        <div id="title">
+            <i class="material-icons lock">Skitter</i> Login
+        </div>
 
-	<div id="ShowMeTheMoney">Skitter. Making the impossible... possible.</div>
+        <form action="login.php" method="post">
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">RIT User ID</i>
+                </div>
+                <input id="username" placeholder="Username" type="text" required class="validate" autocomplete="off" name="username">
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">Password</i>
+                </div>
+                <input id="password" placeholder="Password" type="password" required class="validate" autocomplete="off" name="password">
+            </div>
+            <input type="submit" value="Log In" />
+        </form>
+
+</div>
 
   </body>
 </html>

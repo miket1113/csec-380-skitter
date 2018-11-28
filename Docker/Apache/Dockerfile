@@ -14,6 +14,7 @@ COPY conf/000-default.conf /etc/apache2/sites-enabled/
 COPY conf/apache2.conf /etc/apache2/
 #COPY conf/TLS/localhost.crt /etc/ssl/certs/localhost.crt
 #COPY conf/TLS/localhost.key /etc/ssl/private/localhost.key
+COPY conf/php.ini /usr/local/etc/php
 
 #COPY index.html /var/www/html/index.html 
 
