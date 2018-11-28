@@ -6,7 +6,7 @@ services:
       build: ./Apache
       container_name: apache1
       hostname: apache1
-      tty: true
+#      tty: true
       volumes:
         - ./Apache/site:/var/www/html/
 
@@ -14,7 +14,7 @@ services:
       build: ./Apache
       container_name: apache2
       hostname: apache2
-      tty: true
+#      tty: true
       volumes:
         - ./Apache/site:/var/www/html/
 
@@ -44,7 +44,8 @@ services:
         - cache1
         - cache2
       ports:
-        - "8080:80"
+        - "80:80"
+        - "443:443"
       hostname: balancer
       container_name: balancer
 

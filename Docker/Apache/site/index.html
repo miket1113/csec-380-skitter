@@ -2,28 +2,66 @@
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Skitter</title>
+    <title>Skitter - Login</title>
     <style media="screen"></style>
+    <link rel="stylesheet" href="login.css">
+    <style>
+        body {
+            background-color: #303641;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery.js"></script>  
+    <script type="text/javascript" nonce="EasyJQeuryNonce">    
+        //inspired from the homeworks :)   
+        $(document).ready(function() {
+            $('#loginForm').submit(function(event) {
+                event.preventDefault();		
+                var data = $('#loginForm').serialize();
+                $.post( "login.php", data)
+                    .done(function( data ) {
+                        if(data.search("False - ") != -1){
+                            $("#loginMsg").css( "color", "red" )
+                            $("#loginMsg").html(data.substring(data.search(" - ")+3,data.length));
+                        }else if(data.search("True - ") != -1){
+                            //window.location.href = '/home.php';
+                            alert("Login successful");
+                        }else{
+                            $("#loginMsg").css( "color", "red" )
+                            $("#loginMsg").html("There was an error logging you in, contact the administrator");					
+                        }
+                });		
+            });			
+        });                                    
+</script>   
+
   </head>
   <body>
 	
-	<div id="login">
-	<table>
-	<tr><td>Email</td><td>Password</td></tr>
-	</font>
-	<form id=loginForm action="login.php" method="post">
-	<tr><td>
-	<input type="text" id="email" name="email" />
-	</td><td>
-	<input type="password" id="password" name="password" />
-	</td><td>
-	<input type="submit" name="submit" value="login" />
-	</td></tr>
-	</form>
-	</table>
-	</div>
+    <div id="container-login">
+        <div id="title">
+            <i class="material-icons lock">Skitter</i> Login
+        </div>
 
-	<div id="banter">Skitter. Making the impossible... possible.</div>
+        <form id=loginForm action="login.php" method="post">
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">RIT User ID</i>
+                </div>
+                <input id="username" placeholder="Username" type="text" required class="validate" autocomplete="off" name="username">
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">Password</i>
+                </div>
+                <input id="password" placeholder="Password" type="password" required class="validate" autocomplete="off" name="password">
+            </div>
+            <input type="submit" value="Log In" />
+        </form>
+        <div id="loginMsg"></div>
+    </div>
 
   </body>
 </html>
