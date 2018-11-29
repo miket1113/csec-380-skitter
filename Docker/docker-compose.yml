@@ -49,3 +49,15 @@ services:
       hostname: balancer
       container_name: balancer
 
+    mysql:
+      image: mysql
+      hostname: mysql
+      ports:
+        - "3307:3306"
+      command: --default-authentication-plugin=mysql_native_password
+      volumes:
+        - ./Mysql/user_settings.sql:/docker-entrypoint-initdb.d/dump.sql
+      environment:
+        MYSQL_ROOT_PASSWORD: Passw0rd
+        MYSQL_DATABASE: user_settings
+

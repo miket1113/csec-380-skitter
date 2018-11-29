@@ -1,11 +1,11 @@
 <?php
-$sess_id = session_start();
+session_start();
 header('Cache-Control: no-cache, no-store, must-revalidate');
 header('Pragma: no-cache');
 header('Expires: 0');
 #echo phpinfo();
 
-$email = $_POST['email'];
+$username = $_POST['username'];
 $password = $_POST['password'];
 
 #java stuff
@@ -17,6 +17,6 @@ $password = $_POST['password'];
 
 # if success, set params
 $_SESSION['login'] = ['born' => time(),'ip' => $_SERVER['REMOTE_ADDR'],'valid' => true];
-$_SESSION['user_id'] = $row['user_id'];
+$_SESSION['user_id'] = $username;
 die("True - login successful");
 ?>
