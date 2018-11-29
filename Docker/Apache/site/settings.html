@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="js/jquery.js"></script>  
+    <script type="text/javascript" nonce="EasyJQeuryNonce">    
+        //inspired from the homeworks :)   
+        $(document).ready(function() {
+             $('#f2').submit(function(event) {
+                event.preventDefault();		
+                var data = $('#f2').serialize();
+                $.post( "changeDisplayName.php", data)
+                    .done(function( data ) {
+                        alert(data);
+                        window.location.href = '/home.html';
+                    });
+             });
+         });
+    </script>
+</head>
+<body>
+    <form id="f1" action="changeProfileImage.php" method="post" enctype="multipart/form-data">
+        Upload Profile Image:
+        <input type="file" name="image"/>
+        <input type="submit" name="submit" value="Upload"/>
+    </form>
+    <form id="f2" action="changeDisplayName.php" method="post">
+	Update Display Name:
+	<input type="text" name="name"/>
+	<input type="submit" name="submit" value="Update"/>
+	<br/>
+	Change Email:
+	<input type="text" name="email"/>
+	<input type="submit" name="submit" value="Change"/>
+    </form>
+</body>
+</html>

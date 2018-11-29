@@ -23,8 +23,8 @@
                             $("#loginMsg").css( "color", "red" )
                             $("#loginMsg").html(data.substring(data.search(" - ")+3,data.length));
                         }else if(data.search("True - ") != -1){
-                            //window.location.href = '/home.php';
-                            alert("Login successful");
+                            window.location.href = '/home.html';
+                            //alert("Login successful");
                         }else{
                             $("#loginMsg").css( "color", "red" )
                             $("#loginMsg").html("There was an error logging you in, contact the administrator");					
