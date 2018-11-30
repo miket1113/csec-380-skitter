@@ -81,7 +81,7 @@ body {
                 if (data[1] != "") $("#user_name").text(data[1]);
                 else $("#user_name").text(data[0]);
                 if (data[2] != "") $("#user_email").text(data[2]);
-                if (data[3] != "") $("#user_img").attr('src', 'data:image/jpeg;base64,'+data[3]);
+                if (data[3] != "") $("#user_img").attr('src', data[3]);
             });
         });
     });

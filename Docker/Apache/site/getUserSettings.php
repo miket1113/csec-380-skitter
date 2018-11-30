@@ -33,6 +33,6 @@ if($result->num_rows > 0){
 	#header('Content-Type: application/json');
 	#echo json_encode($arr);
 	echo "{$row['user_id']}\r\n{$row['name']}\r\n{$row['email']}\r\n";
-	echo base64_encode($row['img']);
+	echo $row['img'];
 }
 ?>

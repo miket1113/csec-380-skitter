@@ -9,10 +9,12 @@ if(isset($_POST["submit"])){
     $check = getimagesize($_FILES["image"]["tmp_name"]);
     if($check !== false){
         $image = $_FILES['image']['tmp_name'];
-        $imgContent = addslashes(file_get_contents($image));
+        #$imgContent = addslashes(file_get_contents($image));
 
+	$filename = 'images/'.uniqid();
+	move_uploaded_file($image, $filename);
         //Insert image content into database
-        $insert = $mysqli->query("UPDATE users SET img = '$imgContent' WHERE user_id = '{$_SESSION['user_id']}'");
+        $insert = $mysqli->query("UPDATE users SET img = '$filename' WHERE user_id = '{$_SESSION['user_id']}'");
         if($insert){
 		header("Location: https://localhost/home.html");
 		die();

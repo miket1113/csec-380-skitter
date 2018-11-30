@@ -7,16 +7,16 @@ services:
       container_name: apache1
       hostname: apache1
 #      tty: true
-      volumes:
-        - ./Apache/site:/var/www/html/
+#      volumes:
+#        - ./Apache/site:/var/www/html/
 
     apache2:
       build: ./Apache
       container_name: apache2
       hostname: apache2
 #      tty: true
-      volumes:
-        - ./Apache/site:/var/www/html/
+#      volumes:
+#        - ./Apache/site:/var/www/html/
 
     cache1:
       build: ./Cache/cache1
