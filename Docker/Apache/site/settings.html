@@ -1,10 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<title>Skitter - Settings</title>
+<style>
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: Tahoma, Geneva, sans-serif;
+    margin: 0;
+}
+.header {
+    padding: 10px;
+    text-align: left;
+    background: black;
+    color: white;
+}
+.header h1 {
+    font-size: 35px;
+}
+.bar {
+    overflow: hidden;
+    background-color: grey;
+}
+.bar a {
+    display: block;
+    color: white;
+    text-align: left;
+    padding: 1px 15px;
+    text-decoration: none;
+}
+.about {
+    flex: 1%;
+    background-color: #ccd1d1;
+    border: 6px solid #808080;
+    padding: 20px;
+}
+.user {  
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.posts-box {   
+    flex: 80%;
+    background-color: #1F1F21;
+	border: 6px solid #808080;
+    padding: 20px;
+}
+
+.image{
+  float: left;
+  border: 1px solid #1F1F21;
+  padding: 10px;
+}
+
+.posts p {
+   display: inline-block;
+}
+.posts {
+  border: 4px solid  #1F1F21;
+  background-color:  #151314;
+  padding: 20px;
+  text-align: center;
+  color: #6c6a6b;
+}
+
+</style>
     <script type="text/javascript" src="js/jquery.js"></script>  
     <script type="text/javascript" nonce="EasyJQeuryNonce">    
         //inspired from the homeworks :)   
         $(document).ready(function() {
+            $(window).load(function() {
+                $.get("getUserSettings.php", function (data) {
+                    data = data.split("\r\n");
+	            if (data == "Invalid Session") window.location = "/index.html";
+                    $("#user_id").text(data[0]);
+                    if (data[1] != "") $("#user_name").text(data[1]);
+                    else $("#user_name").text(data[0]);
+                    if (data[2] != "") $("#user_email").text(data[2]);
+                    if (data[3] != "") $("#user_img").attr('src', data[3]);
+                });
+            });
              $('#f2').submit(function(event) {
                 event.preventDefault();		
                 var data = $('#f2').serialize();
@@ -17,7 +95,31 @@
          });
     </script>
 </head>
-<body>
+<body style="background-color:#151314">
+
+<div class="header">
+  <h1>Skitter</h1>
+</div>
+
+<div class="bar">
+  <a href="home.html" style="float:left; text-align: left">Home</a>
+  <a href="settings.html" style="float:left; text-align: left">Settings</a>
+  <a href="logout.php" style="float:right; text-align: right">Logout</a>
+  <a href="#" style="float:right; text-align: right">Search</a>
+</div>
+
+<div class="user">
+  <div class="about">
+      <img id="user_img" class="background" src="images/pawprint.gif" style="width:40%">
+      <h2 id="user_name">John Doe</h2>  
+      <h3>Username: </h3>
+      <div id="user_id"></div>
+      <h3>Email:</h3>
+      <div id="user_email">email not added</div>
+      
+</div>
+ <div class="posts-box">      
+   <div class="posts">
     <form id="f1" action="changeProfileImage.php" method="post" enctype="multipart/form-data">
         Upload Profile Image:
         <input type="file" name="image"/>
@@ -32,5 +134,7 @@
 	<input type="text" name="email"/>
 	<input type="submit" name="submit" value="Change"/>
     </form>
+   </div> 
+ </div>
 </body>
 </html>

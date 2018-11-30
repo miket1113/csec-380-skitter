@@ -4,7 +4,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
-
+<title>Skitter - Home</title>
 <style>
 * {
     box-sizing: border-box;
@@ -77,6 +77,7 @@ body {
         $(window).load(function() {
             $.get("getUserSettings.php", function (data) {
                 data = data.split("\r\n");
+		if (data == "Invalid Session") window.location = "/index.html";
                 $("#user_id").text(data[0]);
                 if (data[1] != "") $("#user_name").text(data[1]);
                 else $("#user_name").text(data[0]);
@@ -95,8 +96,9 @@ body {
 </div>
 
 <div class="bar">
-  <a href="#" style="float:left; text-align: left">Home</a>
+  <a href="home.html" style="float:left; text-align: left">Home</a>
   <a href="settings.html" style="float:left; text-align: left">Settings</a>
+  <a href="logout.php" style="float:right; text-align: right">Logout</a>
   <a href="#" style="float:right; text-align: right">Search</a>
 </div>
 
