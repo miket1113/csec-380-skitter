@@ -46,13 +46,20 @@ using common development techniques as part of the project.
   * /isAuthenticated - WIP - This feature works locally but it is unknown if it works for multiple sessions yet.
  
  **Settings**
- <WIP>
+ 
+   Users are able to change the settings for their account through 2 endpoints: /changeDisplayName.php and /changeProfileImage.php. These endpoints are called though forms on the settings.html page and will not run until the user's session is validated. Settings are stored in a MySQL database.
  
  **Session Management**
  <WIP>
  
  **Following/Unfollowing Users**
- <WIP>
+
+  Users are able to follow and unfollow other users. This is functionality is implemented using Flask and MySQL. These endpoints will not run until the user's session ahs been validated.
+  Endpoints:
+  * /UserSearch - (POST) searches the database for users' name that contain the given string
+  * /FollowUser - (POST) follows the given user
+  * /UnfollowUser - (POST) unfollows the given user
+  * /following - (POST) returns all users the the given user_id is following
  
  **Skit Creation/Deletion**
  <WIP>
