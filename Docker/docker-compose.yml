@@ -49,27 +49,13 @@ services:
       hostname: balancer
       container_name: balancer
     
-    elasticsearch:
-      image: docker.elastic.co/elasticsearch/elasticsearch:6.5.1
-      command: elasticsearch -Des.network.host=0.0.0.0
+    elk:
+      image: sebp/elk:640
+      container_name: elk
+      hostname: elk
       ports:
-       - "9200:9200"
-       - "9300:9300"
-      container_name: elasticsearch    
-      #vol
-       #- data:/usr/share/elasticsearch/data
-     
-    kibana:
-      build: Kibana/
-      volumes:
-       - ./Kibana/config/:/opt/kibana/config/
-      ports:
-       - "5601:5601"
-      links:
-       - elasticsearch
-      depends_on:
-       - elasticsearch
-      container_name: kibana
+        - "5601:5601"   # Kibana
+        - "9200:9200"   # elasticsearch JSON interface
 
     mysql:
       image: mysql
