@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
-<title>Skitter - Settings</title>
+<title>Skitter - Home</title>
 <style>
 * {
     box-sizing: border-box;
@@ -68,32 +69,33 @@ body {
 }
 
 </style>
-    <script type="text/javascript" src="js/jquery.js"></script>  
-    <script type="text/javascript" nonce="EasyJQeuryNonce">    
-        //inspired from the homeworks :)   
-        $(document).ready(function() {
-            $(window).load(function() {
-                $.get("getUserSettings.php", function (data) {
-                    data = data.split("\r\n");
-	            if (data == "Invalid Session") window.location = "/index.html";
-                    $("#user_id").text(data[0]);
-                    if (data[1] != "") $("#user_name").text(data[1]);
-                    else $("#user_name").text(data[0]);
-                    if (data[2] != "") $("#user_email").text(data[2]);
-                    if (data[3] != "") $("#user_img").attr('src', data[3]);
-                });
+
+<script type="text/javascript" src="js/jquery.js"></script>  
+<script type="text/javascript" nonce="EasyJQeuryNonce">    
+    //inspired from the homeworks :)   
+    $(document).ready(function() {
+        $(window).load(function() {
+            $.get("getUserSettings.php", function (data) {
+                data = data.split("\r\n");
+		if (data == "Invalid Session") window.location = "/index.html";
+                $("#user_id").text(data[0]);
+                if (data[1] != "") $("#user_name").text(data[1]);
+                else $("#user_name").text(data[0]);
+                if (data[2] != "") $("#user_email").text(data[2]);
+                if (data[3] != "") $("#user_img").attr('src', data[3]);
             });
-             $('#f2').submit(function(event) {
+        });
+             $('#form1').submit(function(event) {
                 event.preventDefault();		
-                var data = $('#f2').serialize();
-                $.post( "changeDisplayName.php", data)
+                var data = $('#form1').serialize();
+                $.post("UserSearch.php", data)
                     .done(function( data ) {
-                        alert(data);
-                        window.location.href = '/home.html';
+                        $("#results").text(data);
                     });
              });
-         });
-    </script>
+    });
+
+</script>
 </head>
 <body style="background-color:#151314">
 
@@ -121,21 +123,13 @@ body {
 </div>
  <div class="posts-box">      
    <div class="posts">
-    <form id="f1" action="changeProfileImage.php" method="post" enctype="multipart/form-data">
-        Upload Profile Image:
-        <input type="file" name="image"/>
-        <input type="submit" name="submit" value="Upload"/>
-    </form>
-    <form id="f2" action="changeDisplayName.php" method="post">
-	Update Display Name:
-	<input type="text" name="name"/>
-	<input type="submit" name="submit" value="Update"/>
-	<br/>
-	Change Email:
-	<input type="text" name="email"/>
-	<input type="submit" name="submit" value="Change"/>
-    </form>
-   </div> 
- </div>
+        <form id="form1" action="UserSearch.php" method="post">
+	<input type="text" name="user"/>
+	<input type="submit" name="submit" value="Search Users"/>
+	</form>
+	<div id="results"></div>
+
+</div> 
+</div>
 </body>
 </html>

@@ -82,14 +82,24 @@ body {
                     if (data[2] != "") $("#user_email").text(data[2]);
                     if (data[3] != "") $("#user_img").attr('src', data[3]);
                 });
+		$.get("following.php", function(data){
+			$("#following").text(data);
+		});
             });
              $('#f2').submit(function(event) {
                 event.preventDefault();		
                 var data = $('#f2').serialize();
-                $.post( "changeDisplayName.php", data)
+                $.post( "FollowUser.php", data)
                     .done(function( data ) {
-                        alert(data);
-                        window.location.href = '/home.html';
+                        location.reload(true);
+                    });
+             });
+             $('#f3').submit(function(event) {
+                event.preventDefault();		
+                var data = $('#f3').serialize();
+                $.post( "UnfollowUser.php", data)
+                    .done(function( data ) {
+                        location.reload(true);
                     });
              });
          });
@@ -121,20 +131,22 @@ body {
 </div>
  <div class="posts-box">      
    <div class="posts">
-    <form id="f1" action="changeProfileImage.php" method="post" enctype="multipart/form-data">
-        Upload Profile Image:
-        <input type="file" name="image"/>
-        <input type="submit" name="submit" value="Upload"/>
+    <form id="f2" action="FollowUser.php" method="post">
+	Enter username to follow:
+	<input type="text" name="user"/>
+	<input type="submit" name="submit" value="Follow"/>
     </form>
-    <form id="f2" action="changeDisplayName.php" method="post">
-	Update Display Name:
-	<input type="text" name="name"/>
-	<input type="submit" name="submit" value="Update"/>
-	<br/>
-	Change Email:
-	<input type="text" name="email"/>
-	<input type="submit" name="submit" value="Change"/>
+    <form id="f3" action="UnfollowUser.php" method="post">
+	Enter username to unfollow:
+	<input type="text" name="user"/>
+	<input type="submit" name="submit" value="Unfollow"/>
     </form>
+   </div> 
+ </div>
+ <div class="posts-box">      
+   <div class="posts">
+    <p>Following:</p>
+    <div id="following"></div>
    </div> 
  </div>
 </body>
