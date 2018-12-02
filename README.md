@@ -34,8 +34,28 @@ using common development techniques as part of the project.
  * A zip of your repository 
  * A writeup that answers the questions outlined in the project 
 
+**Requirements:** 
+* Docker-Compose: https://docs.docker.com/compose/
 
 
+**Authentication** 
 
+  Authentication is peformed via a Java microservice using Maven and the Spring framework. The authentication service should run locally, with no public access using proper docker settings. When a request is made to the /login page of the service with credentials, the service will respond back with true or false indicating successful authentication. Credentials are not stored or used anywhere in the system.
+  Entry Points:
+  * /login: Requires - username=<un>&password=<pw> in the body of a POST request.
+  * /isAuthenticated - WIP - This feature works locally but it is unknown if it works for multiple sessions yet.
+ 
+ **Settings**
+ <WIP>
+ 
+ **Session Management**
+ <WIP>
+ 
+ **Following/Unfollowing Users**
+ <WIP>
+ 
+ **Skit Creation/Deletion**
+ <WIP>
+ 
 **TODO:**
 Requirements and instructions for use will go here as the project develops.
