@@ -10,6 +10,16 @@ Authors:
 Concept art only. Final version will be different, see below for project description.
 ![Alt text](SkitterV2.png?raw=true "WARNING: Concept art only - What skitter could look like.")
 
+**How to run:**
+To run this script, simpily go into the Docker folder and in your terminal run:
+
+bash build.sh
+
+This will change your teminal to allow elasticsearch to have the memory it needs, and will build all docker files for you, once it is complete, it will run "docker-compose up". Once that completes you will be able to interact with the project
+
+To exit, press CTRL+C, once it exits, enter the command "docker-compose down"
+
+
 **Description:**
 
 (WIP) Skitter is a platform for RIT users to communicate their thoughts via short skits. A skit is a short
