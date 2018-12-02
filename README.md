@@ -11,6 +11,7 @@ Concept art only. Final version will be different, see below for project descrip
 ![Alt text](SkitterV2.png?raw=true "WARNING: Concept art only - What skitter could look like.")
 
 **How to run:**
+
 To run this script, simpily go into the Docker folder and in your terminal run:
 
 bash build.sh
