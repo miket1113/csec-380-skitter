@@ -48,6 +48,28 @@ services:
         - "443:443"
       hostname: balancer
       container_name: balancer
+    
+    elasticsearch:
+      image: docker.elastic.co/elasticsearch/elasticsearch:6.5.1
+      command: elasticsearch -Des.network.host=0.0.0.0
+      ports:
+       - "9200:9200"
+       - "9300:9300"
+      container_name: elasticsearch    
+      #vol
+       #- data:/usr/share/elasticsearch/data
+     
+    kibana:
+      build: Kibana/
+      volumes:
+       - ./Kibana/config/:/opt/kibana/config/
+      ports:
+       - "5601:5601"
+      links:
+       - elasticsearch
+      depends_on:
+       - elasticsearch
+      container_name: kibana
 
     mysql:
       image: mysql
@@ -61,3 +83,4 @@ services:
         MYSQL_ROOT_PASSWORD: Passw0rd
         MYSQL_DATABASE: user_settings
 
+     
