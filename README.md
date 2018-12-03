@@ -58,10 +58,10 @@ using common development techniques as part of the project.
  
  **Settings**
  
-   Users are able to change the settings for their account through 2 endpoints: 
+   Users are able to change the settings for their account through two endpoints.  These endpoints are called though forms on the settings.html page and will not run until the user's session is validated. Settings are stored in a MySQL database.
    * /changeDisplayName.php
    * /changeProfileImage.php. 
-   These endpoints are called though forms on the settings.html page and will not run until the user's session is validated. Settings are stored in a MySQL database.
+  
  
  **Session Management**
    Sessions are managed using PHPs built in session management, and Spring frameworks security configuration during authentication.
