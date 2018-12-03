@@ -77,3 +77,10 @@ services:
       ports:
         - "8080:5000"
 
+    auth:
+      build: ./auth
+      hostname: auth
+      tty: true
+      ports:
+        - "8090:80"
+
