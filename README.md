@@ -57,6 +57,8 @@ using common development techniques as part of the project.
   * /login: Requires - username=<un>&password=<pw> in the body of a POST request.
   * /isAuthenticated - WIP - This feature works locally but it is unknown if it works for multiple sessions yet.
  
+ Authentication currently works when run locally outside of the app, as a standalone service. Currently in progress: Wiring skitter so it can obtain a JSESSIONID on behalf of the user and use that along with the provided user credentials to login via LDAP. For testing purposes, currently all login attempts to skitter will be successful regardless of credentials.
+ 
  **Settings**
  
    Users are able to change the settings for their account through two endpoints.  These endpoints are called though forms on the settings.html page and will not run until the user's session is validated. Settings are stored in a MySQL database.
