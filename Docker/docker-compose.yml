@@ -81,6 +81,4 @@ services:
       build: ./auth
       hostname: auth
       tty: true
-      ports:
-        - "8090:80"
 
