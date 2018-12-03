@@ -47,6 +47,7 @@ using common development techniques as part of the project.
 
 **Requirements:** 
 * Docker-Compose: https://docs.docker.com/compose/
+* RITs LDAP server requires that you either be on RITs network or VPNd into the network. If a local or different LDAP server is required, the Spring configuration file will need to be edited.
 
 
 **Authentication** 
