@@ -57,7 +57,7 @@ using common development techniques as part of the project.
   * /login: Requires - username=<un>&password=<pw> in the body of a POST request.
   * /isAuthenticated - WIP - This feature works locally but it is unknown if it works for multiple sessions yet.
  
- Authentication currently works when run locally outside of the app, as a standalone service. Currently in progress: Wiring the app so it can obtain a JSESSIONID on behalf of the user and use that along with the user credentials to login via LDAP. For testing purposes, currently all login attempts to the app will be successful regardless of credentials.
+ Authentication currently works when run locally outside of the app, as a standalone service. Currently in progress: Wiring skitter so it can obtain a JSESSIONID on behalf of the user and use that along with the provided user credentials to login via LDAP. For testing purposes, currently all login attempts to skitter will be successful regardless of credentials.
  
  **Settings**
  
