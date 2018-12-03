@@ -52,7 +52,7 @@ using common development techniques as part of the project.
 
 **Authentication** 
 
-  Authentication is peformed via a Java microservice using Maven and the Spring framework. The authentication service should run locally, with no public access using proper docker settings. When a request is made to the /login page of the service with credentials, the service will respond back with true or false indicating successful authentication. Credentials are not stored or used anywhere in the system.
+  Authentication is peformed via a Java microservice using Maven and the Spring framework. The authentication service should run locally, with no public access using proper docker settings. When a request is made to the /login page of the service with credentials, the service will respond back with true or false indicating successful authentication. Credentials are not stored anywhere in the system and are used only to communicate to RITs LDAP server.
   Entry Points:
   * /login: Requires - username=<un>&password=<pw> in the body of a POST request.
   * /isAuthenticated - WIP - This feature works locally but it is unknown if it works for multiple sessions yet.
